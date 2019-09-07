@@ -39,6 +39,12 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           ],
 
         ),
+        actions: <Widget>[
+          new Icon(Icons.search),
+          new Padding(padding: const EdgeInsets.symmetric(horizontal: 7.0),),
+          new Icon(Icons.more_vert),
+          new Padding(padding: const EdgeInsets.symmetric(horizontal: 5.0),)
+        ],
       ),
       body: new TabBarView(
         controller: _tabController,
@@ -50,8 +56,8 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         ],
       ),
       floatingActionButton: new FloatingActionButton(
-        backgroundColor: Theme.of(context).accentColor,
-        child: new Icon(Icons.message),
+        backgroundColor: Colors.green,
+        child: new Icon(Icons.message,color: Colors.white,),
         onPressed: ()=>print("Open Chats"),
       ),
     );
