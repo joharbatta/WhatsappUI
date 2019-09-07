@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:whatsappclone/pages/calls_screen.dart';
+import 'package:whatsappclone/pages/camera_screen.dart';
+import 'package:whatsappclone/pages/chat_screen.dart';
+import 'package:whatsappclone/pages/status_screen.dart';
 class WhatsAppHome  extends StatefulWidget {
   @override
   _WhatsAppHomeState createState() => _WhatsAppHomeState();
@@ -16,7 +20,6 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
     _tabController=new TabController(vsync: this,initialIndex: 1,length: 4);
 
   }
-
 
 
   @override
