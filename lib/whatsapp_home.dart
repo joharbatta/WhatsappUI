@@ -25,28 +25,82 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("WhatsApp"),
-        elevation: 0.7,
-        bottom: new TabBar(
-          controller: _tabController,
-          indicatorColor: Colors.white,
-          tabs: <Widget>[
-            new Tab(icon: new Icon(Icons.camera_alt)),
-            new Tab(text: "CHATS"),
-            new Tab(text: "STATUS "),
-            new Tab(text: "CALLS"),
-          ],
+//      appBar: new AppBar(
+//        title: new Text("WhatsApp"),
+//        elevation: 0.7,
+//        bottom: new TabBar(
+//          controller: _tabController,
+//          indicatorColor: Colors.white,
+//          tabs: <Widget>[
+//            new Tab(icon: new Icon(Icons.camera_alt)),
+//            new Tab(text: "CHATS"),
+//            new Tab(text: "STATUS "),
+//            new Tab(text: "CALLS"),
+//          ],
+//
+//        ),
+//        actions: <Widget>[
+//          new Icon(Icons.search),
+//          new Padding(padding: const EdgeInsets.symmetric(horizontal: 7.0),),
+//          new Icon(Icons.more_vert),
+//          new Padding(padding: const EdgeInsets.symmetric(horizontal: 5.0),)
+////        ],
+//      ),
+//      body: new TabBarView(
+//        controller: _tabController,
+//        children: <Widget>[
+//          new CameraScreen(),
+//          new ChatScreen(),
+//          new StatusScreen(),
+//          new CallsScreen(),
+//        ],
+//      ),
+      body: Container(
 
-        ),
-        actions: <Widget>[
-          new Icon(Icons.search),
-          new Padding(padding: const EdgeInsets.symmetric(horizontal: 7.0),),
-          new Icon(Icons.more_vert),
-          new Padding(padding: const EdgeInsets.symmetric(horizontal: 5.0),)
-        ],
-      ),
-      body: new TabBarView(
+
+      child: new NestedScrollView(
+
+        headerSliverBuilder: (context, value) {
+          return [
+            SliverAppBar(
+              title: new Text("WhatsApp"),
+              elevation: 0.7,
+              bottom: TabBar(
+                controller: _tabController,
+                indicatorColor: Colors.white,
+                tabs: <Widget>[
+                  new Tab(icon: new Icon(Icons.camera_alt)),
+                  new Tab(text: "CHATS"),
+                  new Tab(text: "STATUS "),
+                  new Tab(text: "CALLS"),
+                ],
+
+              ),
+
+              expandedHeight: 102,
+              floating: true,
+              pinned: true,
+              actions: <Widget>[
+
+                new Icon(Icons.search),
+                new Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 7.0),),
+                new Icon(Icons.more_vert),
+                new Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),)
+              ],
+
+//              flexibleSpace: new FlexibleSpaceBar(
+//
+//              ),
+
+            ),
+
+          ];
+
+        },
+
+        body: new TabBarView(
         controller: _tabController,
         children: <Widget>[
           new CameraScreen(),
@@ -55,11 +109,17 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           new CallsScreen(),
         ],
       ),
-      floatingActionButton: new FloatingActionButton(
-        backgroundColor: Colors.green,
-        child: new Icon(Icons.message,color: Colors.white,),
-        onPressed: ()=>print("Open Chats"),
+
+
       ),
+
+
+    ),  floatingActionButton: new FloatingActionButton(
+      backgroundColor: Colors.green,
+      child: new Icon(Icons.message,color: Colors.white,),
+      onPressed: ()=>print("Open Chats"),
+    ),
     );
+
   }
 }
